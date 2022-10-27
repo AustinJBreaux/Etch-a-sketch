@@ -33,23 +33,30 @@ Extra credit - Instead of black and white, make it a random (Rainbow!!!) color,
         filter:brightness = +10%. If class != hovered, set CSS color to 
         whatever color
 */
-button.addListenerEvent('click', userPrompt(e));
-function userPrompt(){
-    if(e.target.className = 'BUTTON'){
-        userNumber = prompt('Please enter a number between 1-100','ex '+ 16);
-        if(userNumber > 100 || userNumber < 1){
-            return 'Error: Please enter a number between 1-100';
-        }
-        else if(userNumber.isString()){
-            return 'Error: Please enter a number between 1-100';
-        }
-        else if(userNumber <= 100 || userNumber >= 1){
-            button.addClassList(userNumber);
-        };
+document.addEventListener('click', userPrompt);
+function userPrompt(e){
+    console.log(e);
+    if(e.target.className != 'userPrompt'){
+        return;
     }    
-    else return;
+    else {
+        gridNumber = prompt('Please enter a number between 1-100','ex '+ 16);
+        if(gridNumber != Number){
+            console.log('Error: Please enter a number between 1-100');
+            return;
+        }
+        else if(gridNumber > 100 || gridNumber < 1){
+            console.log('Error: Please enter a number between 1-100');
+            return;
+        }
+        else if(100 >= gridNumber >= 1){
+            e.addClassList('gridNumber');
+            e.gridNumber = gridNumber;
+            console.log('success ' + gridNumber);
+        };
+    };
+    
 };
 
 
-//if(button.)
 //document.createElement
