@@ -33,6 +33,8 @@ Extra credit - Instead of black and white, make it a random (Rainbow!!!) color,
         filter:brightness = +10%. If class != hovered, set CSS color to 
         whatever color
 */
+
+// Prompts user for grid size
 document.addEventListener('click', userPrompt);
 function userPrompt(e){
     console.log(e);
@@ -41,7 +43,8 @@ function userPrompt(e){
     }    
     else {
         gridNumber = prompt('Please enter a number between 1-100','ex '+ 16);
-        if(gridNumber != Number){
+        parseInt(gridNumber);
+        if(isNaN(gridNumber)){
             console.log('Error: Please enter a number between 1-100');
             return;
         }
@@ -49,14 +52,11 @@ function userPrompt(e){
             console.log('Error: Please enter a number between 1-100');
             return;
         }
-        else if(100 >= gridNumber >= 1){
-            e.addClassList('gridNumber');
-            e.gridNumber = gridNumber;
-            console.log('success ' + gridNumber);
+        else if(gridNumber > 1 && gridNumber < 100){
+            choiceButton = document.querySelector(element.classList.userPrompt);
+            choiceButton.classList.add('playerGrid');
+            choiceButton.playerGrid = gridNumber;
         };
     };
-    
 };
 
-
-//document.createElement
