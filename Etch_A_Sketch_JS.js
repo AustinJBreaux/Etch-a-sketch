@@ -46,23 +46,39 @@ function userPrompt(e){
         return;
     }    
     else {
-        gridNumber = prompt('Please enter a number between 1-100','ex '+ 16);
-        parseInt(gridNumber);
-        if(isNaN(gridNumber)){
+        promptedGridNumber = prompt('Please enter a number between 1-100','ex '+ 16);
+        parseInt(promptedGridNumber);
+        if(isNaN(promptedGridNumber)){
             console.log('Error: Please enter a number between 1-100');
             return;
         }
-        else if(gridNumber > 100 || gridNumber < 1){
+        else if(promptedGridNumber > 100 || promptedGridNumber < 1){
             console.log('Error: Please enter a number between 1-100');
             return;
         }
-        else if(gridNumber > 1 && gridNumber < 100){
-            console.log('111');
+        else if(promptedGridNumber > 1 && promptedGridNumber < 100){
             choiceButton.classList.add('playerGrid');
-            console.log(choiceButton.classList);
-            choiceButton.playerGrid = gridNumber;
-            console.log(gridNumber);
+            choiceButton.playerGrid = gridRow;
         };
     };
 };
 
+//Creates the grid
+/*
+Pseudo:
+If != promptedGridnumber, gridRow = 16. Else gridRow = promptedGridNumber
+fullGrid = gridRow x gridRow
+Counter* ++ to gridRow
+    Make gridRow number of divs with a class of row#Counter*
+*/
+makeGrid = function makeGrid(){
+    if(promptedGridNumber != undefined){
+        for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
+            createElement("div");
+            
+            for(let i = 0; i < gridRow; i++){
+                createElement("div")
+            }
+        }
+    }
+}
