@@ -53,9 +53,10 @@ function userPrompt(e){
             return;
         }
         else if(gridNumber > 1 && gridNumber < 100){
-            choiceButton = document.querySelector(element.classList.userPrompt);
-            choiceButton.classList.add('playerGrid');
-            choiceButton.playerGrid = gridNumber;
+            let choiceButton = document.querySelector('userPrompt');
+            return choiceButton;
+            /* choiceButton.classList.add('playerGrid');
+            choiceButton.playerGrid = gridNumber; */
         };
     };
 };
