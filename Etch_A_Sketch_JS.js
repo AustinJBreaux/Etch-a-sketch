@@ -34,11 +34,15 @@ Extra credit - Instead of black and white, make it a random (Rainbow!!!) color,
         whatever color
 */
 
+//Global Variables
+const choiceButton = document.querySelector('.userPromptButton');
+const restartButton = document.querySelector('.restartButton');
+
 // Prompts user for grid size
 document.addEventListener('click', userPrompt);
 function userPrompt(e){
     console.log(e);
-    if(e.target.className != 'userPrompt'){
+    if(e.target.className != 'userPromptButton'){
         return;
     }    
     else {
@@ -53,10 +57,11 @@ function userPrompt(e){
             return;
         }
         else if(gridNumber > 1 && gridNumber < 100){
-            let choiceButton = document.querySelector('userPrompt');
-            return choiceButton;
-            /* choiceButton.classList.add('playerGrid');
-            choiceButton.playerGrid = gridNumber; */
+            console.log('111');
+            choiceButton.classList.add('playerGrid');
+            console.log(choiceButton.classList);
+            choiceButton.playerGrid = gridNumber;
+            console.log(gridNumber);
         };
     };
 };
