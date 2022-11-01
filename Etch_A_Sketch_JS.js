@@ -39,6 +39,7 @@ const choiceButton = document.querySelector('.userPromptButton');
 const restartButton = document.querySelector('.restartButton');
 
 // Prompts user for grid size
+/*
 document.addEventListener('click', userPrompt);
 function userPrompt(e){
     console.log(e);
@@ -62,6 +63,7 @@ function userPrompt(e){
         };
     };
 };
+*/
 
 //Creates the grid
 /*
@@ -72,13 +74,25 @@ Counter* ++ to gridRow
     Make gridRow number of divs with a class of row#Counter*
 */
 makeGrid = function makeGrid(){
-    if(promptedGridNumber != undefined){
+    if(promptedGridNumber = undefined){
+        let gridRow = 16;
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
-            createElement("div");
-            
+            document.createElement(`divContainer${gridRow}`);
             for(let i = 0; i < gridRow; i++){
-                createElement("div")
+                `divContainer${gridRow}`.appendChild(`div${gridRow}`)
+                console.log(`divContainer${gridRow}`);
+            }
+        }
+    }
+    else{
+        let gridRow = 16 //temp
+        for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
+            document.createElement(`divContainer${gridRow}`);
+            for(let i = 0; i < gridRow; i++){
+                `divContainer${gridRow}`.appendChild(`div${gridRow}`)
+                console.log(`divContainer${gridRow}`);
             }
         }
     }
 }
+document.addEventListener('click', makeGrid)
