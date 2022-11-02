@@ -87,10 +87,13 @@ makeGrid = function makeGrid(){
     else{
         let gridRow = 16 //temp
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
-            document.createElement(`divContainer${gridRow}`);
+            let A = rowCounter;
+            //document.createElement(`divContainer${gridRow}`);
             for(let i = 0; i < gridRow; i++){
-                `divContainer${gridRow}`.appendChild(`div${gridRow}`)
-                console.log(`divContainer${gridRow}`);
+                //document[`divContainer${gridRow}`].appendChild(`div${gridRow}`)
+                //console.log(`divContainer${gridRow}`);
+                let B = gridRow;
+                console.log(`${A} + ${B}`)
             }
         }
     }
