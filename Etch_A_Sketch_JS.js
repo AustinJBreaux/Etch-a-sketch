@@ -89,12 +89,12 @@ makeGrid = function makeGrid(){
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             row = document.createElement("div");
             row.classList.add(`row${rowCounter}`);
-            console.log(row)
+            //console.log(row)
             for(let i = 0; i < gridRow; i++){
-                columnNumber = document.querySelector(`row${rowCounter}`);
+                columnNumber = document.querySelector(`.row${rowCounter}`);
+                //columnNumber.createElement('div');
+                //appendChild(`column${i}`);
                 console.log(columnNumber);
-                /*columnNumber.classList.add("div");
-                columnNumber.div.classList.add(`column${i}`);*/
             }
         }
     }
