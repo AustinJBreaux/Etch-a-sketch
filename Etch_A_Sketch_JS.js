@@ -88,16 +88,14 @@ makeGrid = function makeGrid(){
         let gridRow = 16 //temp
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             row = document.createElement("div");
-            //row.classList.add(rowCounter);
-            row.classList.add(`row${rowCounter}`)
-            console.log(document.querySelectorAll(".row"));
-            //document.createElement(`divContainer${gridRow}`);
-            /* for(let i = 0; i < gridRow; i++){
-                //document[`divContainer${gridRow}`].appendChild(`div${gridRow}`)
-                //console.log(`divContainer${gridRow}`);
-                let B = gridRow;
-                console.log(`${A} + ${B}`)
-            }*/
+            row.classList.add(`row${rowCounter}`);
+            console.log(row)
+            for(let i = 0; i < gridRow; i++){
+                columnNumber = document.querySelector(`row${rowCounter}`);
+                console.log(columnNumber);
+                /*columnNumber.classList.add("div");
+                columnNumber.div.classList.add(`column${i}`);*/
+            }
         }
     }
 }
