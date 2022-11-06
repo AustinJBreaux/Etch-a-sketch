@@ -1,0 +1,14 @@
+.outerBorder1{
+    border: 3px solid black;
+    width: fit-content;
+}
+
+.outerBorder2{
+    border: 3px solid gray;
+    width: fit-content;
+}
+
+.outerBorder3{
+    border: 3px solid white;
+    width: fit-content;
+}
