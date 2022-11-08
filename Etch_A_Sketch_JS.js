@@ -99,4 +99,19 @@ makeGrid = function makeGrid(){
         }
     }
 }
-document.addEventListener('click', makeGrid)
+
+// Set and/or changes color
+document.addEventListener('mouseover', changeColor)
+let changeColor = function changeColor(e){
+    if(e.target.className != "colorChange"){
+        if(e.target.className != "changed"){
+            //set to changed, get random color, e.target.className = that + "random color"
+        }
+        else if(e.target.className = "changed"){
+            // document.~element~.style.filter = that + 10%
+        }
+        else console.log("Error in changing color")
+    }
+    else return;
+}
+//document.addEventListener('click', makeGrid)
