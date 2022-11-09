@@ -103,12 +103,14 @@ makeGrid = function makeGrid(){
 // Set and/or changes color
 document.addEventListener('mouseover', changeColor)
 let changeColor = function changeColor(e){
-    if(e.target.className != "colorChange"){
+    if(e.target.className = "changeable"){
         if(e.target.className != "changed"){
-            //set to changed, get random color, e.target.className = that + "random color"
+            e.target.className.add('changed');
+            //Do random color code
         }
         else if(e.target.className = "changed"){
-            // document.colorTest.style.filter = that + 10%
+            document.colorTest.style.filter = brightness;
+            brightness = brightness - 10;
         }
         else console.log("Error in changing color")
     }
