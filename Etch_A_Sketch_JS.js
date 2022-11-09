@@ -108,7 +108,7 @@ let changeColor = function changeColor(e){
             //set to changed, get random color, e.target.className = that + "random color"
         }
         else if(e.target.className = "changed"){
-            // document.~element~.style.filter = that + 10%
+            // document.colorTest.style.filter = that + 10%
         }
         else console.log("Error in changing color")
     }

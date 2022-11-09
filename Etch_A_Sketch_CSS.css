@@ -12,3 +12,10 @@
     border: 3px solid white;
     width: fit-content;
 }
+
+.colorTest{
+    width: 20px;
+    height: 20px;
+    background-color: darkblue;
+    filter: brightness(100%) 
+}
