@@ -13,9 +13,9 @@
     width: fit-content;
 }
 
-.changed{
-    width: 20px;
-    height: 20px;
-    background-color: darkblue;
-    filter: brightness(100%) 
+.changeable{
+    width: 1000px;
+    height: 1000px;
+    border: 2px solid black;
+    display: flex;
 }
