@@ -101,12 +101,24 @@ makeGrid = function makeGrid(){
 }
 
 // Set and/or changes color
+
+//Below is temp to create testing divs
+document.querySelectorAll('changeable', testDiv())
+function testDiv(){
+    for(i = 0; i < 8; i++){
+        div = document.createElement('div');
+        div.classList.add('toChange')//Transient property, chooses what to set to changed. Fix later
+    }
+}
 document.addEventListener('mouseover', changeColor)
 let changeColor = function changeColor(e){
     if(e.target.className = "changeable"){
         if(e.target.className != "changed"){
             e.target.className.add('changed');
-            //Do random color code
+            /* Random Color code UNTESTED
+            let colorNumber = Math.floor(Math.random()*6);
+            e.target.classList.add(`.color${colorNumber}`);
+            */
         }
         else if(e.target.className = "changed"){
             document.colorTest.style.filter = brightness;
