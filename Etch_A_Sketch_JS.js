@@ -106,19 +106,23 @@ makeGrid = function makeGrid(){
 document.querySelectorAll('changeable', testDiv())
 function testDiv(){
     for(i = 0; i < 8; i++){
-        div = document.createElement('div');
-        div.classList.add('toChange')//Transient property, chooses what to set to changed. Fix later
+        tempDiv = document.querySelector("div.changeable");
+        tempDiv.setAttribute("div", "toChange");
+        document.querySelectorAll("toChange").style.property = ".toChange"
+        //console.log(tempDiv);
+        //^ Transient property, chooses what to set to changed. Fix later
     }
 }
+/*
 document.addEventListener('mouseover', changeColor)
 let changeColor = function changeColor(e){
     if(e.target.className = "changeable"){
         if(e.target.className != "changed"){
             e.target.className.add('changed');
-            /* Random Color code UNTESTED
-            let colorNumber = Math.floor(Math.random()*6);
-            e.target.classList.add(`.color${colorNumber}`);
-            */
+            //Random Color code UNTESTED
+            //let colorNumber = Math.floor(Math.random()*6);
+            //e.target.classList.add(`.color${colorNumber}`);
+            
         }
         else if(e.target.className = "changed"){
             document.colorTest.style.filter = brightness;
@@ -128,4 +132,5 @@ let changeColor = function changeColor(e){
     }
     else return;
 }
+*/
 //document.addEventListener('click', makeGrid)

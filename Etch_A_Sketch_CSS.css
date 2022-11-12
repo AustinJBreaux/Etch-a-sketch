@@ -19,3 +19,58 @@
     border: 2px solid black;
     display: flex;
 }
+
+.toChange{
+    width: 10px;
+    height: 10px;
+    border: 2px solid black;
+}
+
+.color0{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    filter: brightness(100%) 
+}
+
+.color1{
+    width: 10px;
+    height: 10px;
+    background-color: orange;
+    filter: brightness(100%) 
+}
+
+.color2{
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    filter: brightness(100%) 
+}
+
+.color3{
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    filter: brightness(100%) 
+}
+
+.color4{
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    filter: brightness(100%) 
+}
+
+.color5{
+    width: 10px;
+    height: 10px;
+    background-color: indigo;
+    filter: brightness(100%) 
+}
+
+.color6{
+    width: 10px;
+    height: 10px;
+    background-color: violet;
+    filter: brightness(100%) 
+}
