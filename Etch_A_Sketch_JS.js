@@ -73,7 +73,8 @@ fullGrid = gridRow x gridRow
 Counter* ++ to gridRow
     Make gridRow number of divs with a class of row#Counter*
 */
-makeGrid = function makeGrid(){
+
+/*makeGrid = function makeGrid(){
     if(promptedGridNumber = undefined){
         let gridRow = 16;
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
@@ -98,20 +99,19 @@ makeGrid = function makeGrid(){
             }
         }
     }
-}
+}*/
 
 // Set and/or changes color
 
-//Below is temp to create testing divs
+//Temp to create color change testing divs
 document.querySelectorAll('changeable', testDiv())
 function testDiv(){
     for(i = 0; i < 8; i++){
-        tempDiv = document.querySelector("div.changeable");
-        tempDiv.setAttribute("div", "toChange");
-        document.querySelectorAll("toChange").style.property = ".toChange"
-        //console.log(tempDiv);
-        //^ Transient property, chooses what to set to changed. Fix later
+        colorDivs = document.querySelector('div.changeable')
+        .appendChild(document.createElement("div"));
+        document.querySelectorAll(colorDivs.classList.add("toChange"));
     }
+    
 }
 /*
 document.addEventListener('mouseover', changeColor)
