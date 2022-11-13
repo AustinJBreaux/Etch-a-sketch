@@ -113,7 +113,7 @@ function testDiv(){
     }
     
 }
-/*
+
 document.addEventListener('mouseover', changeColor)
 let changeColor = function changeColor(e){
     if(e.target.className = "changeable"){
@@ -132,5 +132,5 @@ let changeColor = function changeColor(e){
     }
     else return;
 }
-*/
+
 //document.addEventListener('click', makeGrid)
