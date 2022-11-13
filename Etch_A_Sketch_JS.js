@@ -35,8 +35,8 @@ Extra credit - Instead of black and white, make it a random (Rainbow!!!) color,
 */
 
 //Global Variables
-const choiceButton = document.querySelector('.userPromptButton');
-const restartButton = document.querySelector('.restartButton');
+//const choiceButton = document.querySelector('.userPromptButton');
+//const restartButton = document.querySelector('.restartButton');
 
 // Prompts user for grid size
 /*
@@ -111,26 +111,36 @@ function testDiv(){
         .appendChild(document.createElement("div"));
         document.querySelectorAll(colorDivs.classList.add("toChange"));
     }
-    
 }
 
-document.addEventListener('mouseover', changeColor)
 let changeColor = function changeColor(e){
-    if(e.target.className = "changeable"){
+    if(e.target.className = "toChange"){
+        console.log('blblbl');
         if(e.target.className != "changed"){
-            e.target.className.add('changed');
-            //Random Color code UNTESTED
+            //e.target.className.add('changed');
+            //e.target.className.remove('toChange');
+            console.log(e + "1");
+            //return
+
             //let colorNumber = Math.floor(Math.random()*6);
-            //e.target.classList.add(`.color${colorNumber}`);
-            
+            //e.target.classList.add(`color${colorNumber}`);
         }
         else if(e.target.className = "changed"){
-            document.colorTest.style.filter = brightness;
-            brightness = brightness - 10;
+            //document.colorTest.style.filter = brightness;
+            //brightness = brightness - 10;
+            console.log(e + "2");
+            return
         }
-        else console.log("Error in changing color")
+        else{
+            console.log(e + "3");
+            return
+        }
     }
-    else return;
+    else{
+        console.log(e + "4");
+        return;
 }
 
-//document.addEventListener('click', makeGrid)
+document.addEventListener('click', changeColor);
+
+//document.addEventListener('click', makeGrid);
