@@ -101,8 +101,6 @@ Counter* ++ to gridRow
     }
 }*/
 
-// Set and/or changes color
-
 //Temp to create color change testing divs
 document.querySelectorAll('changeable', testDiv())
 function testDiv(){
@@ -113,32 +111,23 @@ function testDiv(){
     }
 }
 
+// Set and/or changes color
 let changeColor = function changeColor(e){
     if(e.target.className = "toChange"){
-        console.log('blblbl');
-        if(e.target.className != "changed"){
-            //e.target.className.add('changed');
-            //e.target.className.remove('toChange');
-            console.log(e + "1");
-            //return
-
-            //let colorNumber = Math.floor(Math.random()*6);
-            //e.target.classList.add(`color${colorNumber}`);
-        }
-        else if(e.target.className = "changed"){
-            //document.colorTest.style.filter = brightness;
-            //brightness = brightness - 10;
-            console.log(e + "2");
-            return
-        }
-        else{
-            console.log(e + "3");
-            return
-        }
+        //e.target.className.add('changed');
+        //e.target.className.remove('toChange');
+        console.log("1");
+        //let colorNumber = Math.floor(Math.random()*6);
+        //e.target.classList.add(`color${colorNumber}`);
+    }
+    else if(e.target.className = "changed"){
+        //document.colorTest.style.filter = brightness;
+        //brightness = brightness - 10;
+        console.log("2");
     }
     else{
-        console.log(e + "4");
-        return;
+        console.log("3");
+    }
 }
 
 document.addEventListener('click', changeColor);
