@@ -121,15 +121,15 @@ let changeColor = function changeColor(e){
         console.log(e.target.classList);
     }
     else if(e.target.className == "changed"){
-        //document.colorTest.style.filter = brightness;
-        //brightness = brightness - 10;
-        console.log("2");
+        document.colorTest.style.filter = brightness;
+        brightness = brightness - 10;
+        console.log(e.target.classList);
     }
     else if(e.target.classList == 'changeable'){
         return
     }
     else{
-        console.log("3");
+        console.log(e.target.classList);
     }
 }
 
