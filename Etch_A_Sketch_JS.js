@@ -113,19 +113,19 @@ function testDiv(){
 
 // Set and/or changes color
 let changeColor = function changeColor(e){
-    if(e.target.classList = "toChange"){
+    if(e.target.classList == "toChange"){
         e.target.classList.add('changed');
         e.target.classList.remove('toChange');
         let colorNumber = Math.floor(Math.random()*6);
         e.target.classList.add(`color${colorNumber}`);
         console.log(e.target.classList);
     }
-    else if(e.target.className = "changed"){
+    else if(e.target.className == "changed"){
         //document.colorTest.style.filter = brightness;
         //brightness = brightness - 10;
         console.log("2");
     }
-    else if(e.target.classList = 'changeable'){
+    else if(e.target.classList == 'changeable'){
         return
     }
     else{
