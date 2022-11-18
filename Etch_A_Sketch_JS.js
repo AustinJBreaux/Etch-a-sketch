@@ -114,6 +114,15 @@ function testDiv(){
 // Set and/or changes color
 let changeColor = function changeColor(e){
     let colorNumber = Math.floor(Math.random()*6);
+    //Creates multiple color styles with darker colors
+for(i = 10; i > -1; i --){
+    brightness = i*10;
+    fxnResult = `color${colorNumber}_${brightness}`;
+    document.getElementsByClassName('').style.cssText = 
+    (``);
+}
+document.createElement('div').classList.add(fxnResult)
+
     if(e.target.classList == "toChange"){
         e.target.classList.add('changed');
         e.target.classList.remove('toChange');
@@ -122,7 +131,7 @@ let changeColor = function changeColor(e){
         console.log("1");
     }
     else if(e.target.classList == `changed.color${colorNumber}`){
-        e.target.style.filter = -10;
+        e.target.style.filter
         
         console.log(e.target.classList);
         console.log("2")
@@ -137,6 +146,8 @@ let changeColor = function changeColor(e){
     }
 }
 
+
+//Global functions
 document.addEventListener('click', changeColor);
 
 //document.addEventListener('click', makeGrid);
