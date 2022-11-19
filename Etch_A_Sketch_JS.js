@@ -113,29 +113,57 @@ function testDiv(){
 
 // Set and/or changes color
 let changeColor = function changeColor(e){
+    //Creates random color assignment
     let colorNumber = Math.floor(Math.random()*6);
-    console.log(colorNumber);
-    let backgroundColor = '';
-
-    //Creates multiple color styles with darker colors
-    for(i = 10; i > -1; i --){
-        brightness = i*10;
-        colorDiv = document.createElement('div');
-        classOrName = `colorDiv${colorNumber}_${brightness}`;
-        let color0 = red;
-        let color1 = orange;
-        let color2 = yellow;
-        let color3 = green;
-        let color4 = blue;
-        let color5 = indigo;
-        let color6 = violet;
-        colorDiv.setAttribute(classOrName, classOrName);
-        document.getElementsByClassName(classOrName)
-        .style.cssText = (`width: 10px;
-        height: 10px;
-        background-color: ${`color${colorNumber}`};
-        filter: brightness(100%);`);
+    function primaryColor(){
+        if(colorNumber = 0){
+            let primaryColor = red;
+            return primaryColor;
+        }
+        else if(colorNumber = 1){
+            let primaryColor = orange;
+            return primaryColor;
+        }
+        else if(colorNumber = 2){
+            let primaryColor = yellow;
+            return primaryColor;
+        }
+        else if(colorNumber = 3){
+            let primaryColor = green;
+            return primaryColor;
+        }
+        else if(colorNumber = 4){
+            let primaryColor = blue;
+            return primaryColor;
+        }
+        else if(colorNumber = 5){
+            let primaryColor = indigo;
+            return primaryColor;
+        }
+        else if(colorNumber = 6){
+            let primaryColor = violet;
+            return primaryColor;
+        }
     }
+
+    //Creates multiple color styles with darker colors based on random color
+    for(color = 0; color < 7; color ++){
+        for(brightness = 10; brightness > -1; brightness --){
+            brightnessFilter = i*10;
+
+            colorDiv = document.createElement('div');
+            colorDiv.classList.add(`colorDiv${color}_${brightness}`);
+            console.log(colorDiv);
+            /*
+            document.querySelector(`colorDiv${color}_${brightness}`)
+            .style.cssText = `(width: 10px;
+            height: 10px;
+            background-color: ${primaryColor};
+            filter: brightness(${brightness}%));`
+            */
+        }
+    }
+
 //document.createElement('div').classList.add(fxnResult)
 
     if(e.target.classList == "toChange"){
