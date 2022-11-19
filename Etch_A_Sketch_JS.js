@@ -114,35 +114,50 @@ function testDiv(){
 // Set and/or changes color
 let changeColor = function changeColor(e){
     let colorNumber = Math.floor(Math.random()*6);
+    console.log(colorNumber);
+    let backgroundColor = '';
+
     //Creates multiple color styles with darker colors
-for(i = 10; i > -1; i --){
-    brightness = i*10;
-    fxnResult = `color${colorNumber}_${brightness}`;
-    document.getElementsByClassName('').style.cssText = 
-    (``);
-}
-document.createElement('div').classList.add(fxnResult)
+    for(i = 10; i > -1; i --){
+        brightness = i*10;
+        colorDiv = document.createElement('div');
+        classOrName = `colorDiv${colorNumber}_${brightness}`;
+        let color0 = red;
+        let color1 = orange;
+        let color2 = yellow;
+        let color3 = green;
+        let color4 = blue;
+        let color5 = indigo;
+        let color6 = violet;
+        colorDiv.setAttribute(classOrName, classOrName);
+        document.getElementsByClassName(classOrName)
+        .style.cssText = (`width: 10px;
+        height: 10px;
+        background-color: ${`color${colorNumber}`};
+        filter: brightness(100%);`);
+    }
+//document.createElement('div').classList.add(fxnResult)
 
     if(e.target.classList == "toChange"){
         e.target.classList.add('changed');
         e.target.classList.remove('toChange');
         e.target.classList.add(`color${colorNumber}`);
         console.log(e.target.classList);
-        console.log("1");
+        //console.log("1");
     }
     else if(e.target.classList == `changed.color${colorNumber}`){
         e.target.style.filter
         
         console.log(e.target.classList);
-        console.log("2")
+        //console.log("2")
     }
     else if(e.target.classList == 'changeable'){
-        console.log("3")
+        //console.log("3")
         return
     }
     else{
         console.log(e.target.classList);
-        console.log("4")
+        //console.log("4")
     }
 }
 
