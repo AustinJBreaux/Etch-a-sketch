@@ -115,61 +115,14 @@ function testDiv(){
 let changeColor = function changeColor(e){
     //Creates random color assignment
     let colorNumber = Math.floor(Math.random()*6);
-    function primaryColor(){
-        if(colorNumber = 0){
-            let primaryColor = red;
-            return primaryColor;
-        }
-        else if(colorNumber = 1){
-            let primaryColor = orange;
-            return primaryColor;
-        }
-        else if(colorNumber = 2){
-            let primaryColor = yellow;
-            return primaryColor;
-        }
-        else if(colorNumber = 3){
-            let primaryColor = green;
-            return primaryColor;
-        }
-        else if(colorNumber = 4){
-            let primaryColor = blue;
-            return primaryColor;
-        }
-        else if(colorNumber = 5){
-            let primaryColor = indigo;
-            return primaryColor;
-        }
-        else if(colorNumber = 6){
-            let primaryColor = violet;
-            return primaryColor;
-        }
-    }
-
-    //Creates multiple color styles with darker colors based on random color
-    for(color = 0; color < 7; color ++){
-        for(brightness = 10; brightness > -1; brightness --){
-            brightnessFilter = i*10;
-
-            colorDiv = document.createElement('div');
-            colorDiv.classList.add(`colorDiv${color}_${brightness}`);
-            console.log(colorDiv);
-            /*
-            document.querySelector(`colorDiv${color}_${brightness}`)
-            .style.cssText = `(width: 10px;
-            height: 10px;
-            background-color: ${primaryColor};
-            filter: brightness(${brightness}%));`
-            */
-        }
-    }
 
 //document.createElement('div').classList.add(fxnResult)
 
     if(e.target.classList == "toChange"){
         e.target.classList.add('changed');
         e.target.classList.remove('toChange');
-        e.target.classList.add(`color${colorNumber}`);
+        e.target.classList.add(`color${colorNumber}_10`);
+        e.target.style = e.target.style[`color${colorNumber}_10`];
         console.log(e.target.classList);
         //console.log("1");
     }
@@ -179,18 +132,58 @@ let changeColor = function changeColor(e){
         console.log(e.target.classList);
         //console.log("2")
     }
-    else if(e.target.classList == 'changeable'){
-        //console.log("3")
-        return
-    }
     else{
-        console.log(e.target.classList);
-        //console.log("4")
+        return
     }
 }
 
 
 //Global functions
-document.addEventListener('click', changeColor);
+document.addEventListener('mouseover', changeColor);
 
+function primaryColor(){
+    if(colorNumber = 0){
+        let primaryColor = +'red';
+        return primaryColor;
+    }
+    else if(colorNumber = 1){
+        let primaryColor = +'orange';
+        return primaryColor;
+    }
+    else if(colorNumber = 2){
+        let primaryColor = +'yellow';
+        return primaryColor;
+    }
+    else if(colorNumber = 3){
+        let primaryColor = +'green';
+        return primaryColor;
+    }
+    else if(colorNumber = 4){
+        let primaryColor = +'blue';
+        return primaryColor;
+    }
+    else if(colorNumber = 5){
+        let primaryColor = +'indigo';
+        return primaryColor;
+    }
+    else if(colorNumber = 6){
+        let primaryColor = +'violet';
+        return primaryColor;
+    }
+}
 //document.addEventListener('click', makeGrid);
+
+//Creates multiple color styles with darker colors based on random color
+
+for(color = 0; color < 7; color ++){
+    primaryColor();
+    for(brightness = 10; brightness > -1; brightness --){
+        brightnessFilter = i*10;
+        colorDiv = document.createElement('div');
+        colorDiv.classList.add(`colorDiv${color}_${brightness}`);
+        colorDiv.style.cssText = `(width: 10px;
+        height: 10px;
+        background-color: ${primaryColor};
+        filter: brightness(${brightness}%));`
+    }
+}
