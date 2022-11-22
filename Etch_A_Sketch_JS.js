@@ -34,36 +34,7 @@ Extra credit - Instead of black and white, make it a random (Rainbow!!!) color,
         whatever color
 */
 
-//Global Variables
-//const choiceButton = document.querySelector('.userPromptButton');
-//const restartButton = document.querySelector('.restartButton');
 
-// Prompts user for grid size
-/*
-document.addEventListener('click', userPrompt);
-function userPrompt(e){
-    console.log(e);
-    if(e.target.className != 'userPromptButton'){
-        return;
-    }    
-    else {
-        promptedGridNumber = prompt('Please enter a number between 1-100','ex '+ 16);
-        parseInt(promptedGridNumber);
-        if(isNaN(promptedGridNumber)){
-            console.log('Error: Please enter a number between 1-100');
-            return;
-        }
-        else if(promptedGridNumber > 100 || promptedGridNumber < 1){
-            console.log('Error: Please enter a number between 1-100');
-            return;
-        }
-        else if(promptedGridNumber > 1 && promptedGridNumber < 100){
-            choiceButton.classList.add('playerGrid');
-            choiceButton.playerGrid = gridRow;
-        };
-    };
-};
-*/
 
 //Creates the grid
 /*
@@ -73,33 +44,6 @@ fullGrid = gridRow x gridRow
 Counter* ++ to gridRow
     Make gridRow number of divs with a class of row#Counter*
 */
-
-/*makeGrid = function makeGrid(){
-    if(promptedGridNumber = undefined){
-        let gridRow = 16;
-        for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
-            document.createElement(`divContainer${gridRow}`);
-            for(let i = 0; i < gridRow; i++){
-                `divContainer${gridRow}`.appendChild(`div${gridRow}`)
-                console.log(`divContainer${gridRow}`);
-            }
-        }
-    }
-    else{
-        let gridRow = 16 //temp
-        for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
-            row = document.createElement("div");
-            row.classList.add(`row${rowCounter}`);
-            //console.log(row)
-            for(let i = 0; i < gridRow; i++){
-                columnNumber = document.querySelector(`.row${rowCounter}`);
-                //columnNumber.createElement('div');
-                //appendChild(`column${i}`);
-                console.log(columnNumber);
-            }
-        }
-    }
-}*/
 
 //Temp to create color change testing divs
 document.querySelectorAll('changeable', testDiv())
@@ -111,36 +55,12 @@ function testDiv(){
     }
 }
 
-// Set and/or changes color
-let changeColor = function changeColor(e){
-    //Creates random color assignment
-    let colorNumber = Math.floor(Math.random()*6);
+//Global Variables---------------------------------------
+const choiceButton = document.querySelector('.userPromptButton');
+const restartButton = document.querySelector('.restartButton');
 
-//document.createElement('div').classList.add(fxnResult)
-
-    if(e.target.classList == "toChange"){
-        e.target.classList.add('changed');
-        e.target.classList.remove('toChange');
-        e.target.classList.add(`color${colorNumber}_10`);
-        e.target.style = e.target.style[`color${colorNumber}_10`];
-        console.log(e.target.classList);
-        //console.log("1");
-    }
-    else if(e.target.classList == `changed.color${colorNumber}`){
-        e.target.style.filter
-        
-        console.log(e.target.classList);
-        //console.log("2")
-    }
-    else{
-        return
-    }
-}
-
-
-//Global functions
-document.addEventListener('mouseover', changeColor);
-
+//Global functions---------------------------------------
+//Converts from random color number to the name of the color for CSS styling (UNF)
 function primaryColor(){
     if(colorNumber = 0){
         let primaryColor = +'red';
@@ -171,10 +91,36 @@ function primaryColor(){
         return primaryColor;
     }
 }
-//document.addEventListener('click', makeGrid);
 
-//Creates multiple color styles with darker colors based on random color
+//Creates grid
+makeGrid = function makeGrid(){
+    if(promptedGridNumber = undefined){
+        let gridRow = 16;
+        for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
+            document.createElement(`divContainer${gridRow}`);
+            for(let i = 0; i < gridRow; i++){
+                `divContainer${gridRow}`.appendChild(`div${gridRow}`)
+                console.log(`divContainer${gridRow}`);
+            }
+        }
+    }
+    else{
+        let gridRow = 16 //temp
+        for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
+            row = document.createElement("div");
+            row.classList.add(`row${rowCounter}`);
+            //console.log(row)
+            for(let i = 0; i < gridRow; i++){
+                columnNumber = document.querySelector(`.row${rowCounter}`);
+                //columnNumber.createElement('div');
+                //appendChild(`column${i}`);
+                console.log(columnNumber);
+            }
+        }
+    }
+}
 
+//Creates multiple color styles with darker colors based on random color (UNF)
 for(color = 0; color < 7; color ++){
     primaryColor();
     for(brightness = 10; brightness > -1; brightness --){
@@ -187,3 +133,58 @@ for(color = 0; color < 7; color ++){
         filter: brightness(${brightness}%));`
     }
 }
+
+// Set and/or changes color (UNF)
+let changeColor = function changeColor(e){
+    //Creates random color assignment
+    let colorNumber = Math.floor(Math.random()*6);
+
+    //Changes the class to a random color
+    if(e.target.classList == "toChange"){
+        e.target.classList.add('changed');
+        e.target.classList.remove('toChange');
+        e.target.classList.add(`color${colorNumber}_10`);
+        e.target.style = e.target.style[`color${colorNumber}_10`];
+        console.log(e.target.classList);
+    }
+    //Makes filter +10% darker
+    else if(e.target.classList == `changed.color${colorNumber}`){
+        //e.target.style.filter
+        
+        console.log(e.target.classList);
+    }
+    else{
+        return
+    }
+}
+
+// Prompts user for grid size
+function userPrompt(e){
+    console.log(e);
+    if(e.target.className != 'userPromptButton'){
+        return;
+    }    
+    else {
+        promptedGridNumber = prompt('Please enter a number between 1-100','ex '+ 16);
+        parseInt(promptedGridNumber);
+        if(isNaN(promptedGridNumber)){
+            console.log('Error: Please enter a number between 1-100');
+            return;
+        }
+        else if(promptedGridNumber > 100 || promptedGridNumber < 1){
+            console.log('Error: Please enter a number between 1-100');
+            return;
+        }
+        else if(promptedGridNumber > 1 && promptedGridNumber < 100){
+            choiceButton.classList.add('playerGrid');
+            choiceButton.playerGrid = gridRow;
+        };
+    };
+};
+
+//Events and backbone------------------------------------------
+document.addEventListener('mouseover', changeColor);
+//document.addEventListener('click', userPrompt);
+//document.addEventListener('click', makeGrid);
+
+
