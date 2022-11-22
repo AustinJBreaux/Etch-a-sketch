@@ -94,7 +94,7 @@ function primaryColor(){
 
 //Creates grid
 makeGrid = function makeGrid(){
-    if(promptedGridNumber = undefined){
+    if(promptedGridNumber = ''){
         let gridRow = 16;
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             document.createElement(`divContainer${gridRow}`);
@@ -105,11 +105,11 @@ makeGrid = function makeGrid(){
         }
     }
     else{
-        let gridRow = 16 //temp
+        let gridRow = promptedGridNumber;
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             row = document.createElement("div");
             row.classList.add(`row${rowCounter}`);
-            //console.log(row)
+            console.log(row)
             for(let i = 0; i < gridRow; i++){
                 columnNumber = document.querySelector(`.row${rowCounter}`);
                 //columnNumber.createElement('div');
@@ -164,7 +164,7 @@ function userPrompt(e){
     if(e.target.className != 'userPromptButton'){
         return;
     }    
-    else {
+    else if(e.target.className == 'userPromptButton'){
         promptedGridNumber = prompt('Please enter a number between 1-100','ex '+ 16);
         parseInt(promptedGridNumber);
         if(isNaN(promptedGridNumber)){
@@ -177,14 +177,18 @@ function userPrompt(e){
         }
         else if(promptedGridNumber > 1 && promptedGridNumber < 100){
             choiceButton.classList.add('playerGrid');
-            choiceButton.playerGrid = gridRow;
+            let gridRow = promptedGridNumber;
+            makeGrid(promptedGridNumber, gridRow);
         };
-    };
+    }
+    else{
+        return
+    }
 };
 
-//Events and backbone------------------------------------------
-document.addEventListener('mouseover', changeColor);
-//document.addEventListener('click', userPrompt);
+//Events and backbone-------------------------------------
+//document.addEventListener('mouseover', changeColor);
+document.addEventListener('click', userPrompt);
 //document.addEventListener('click', makeGrid);
 
 
