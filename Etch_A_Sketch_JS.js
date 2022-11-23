@@ -93,7 +93,7 @@ function primaryColor(){
 }
 
 //Creates grid
-makeGrid = function makeGrid(){
+makeGrid = function makeGrid(gridRow){
     if(promptedGridNumber = ''){
         let gridRow = 16;
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
@@ -105,16 +105,11 @@ makeGrid = function makeGrid(){
         }
     }
     else{
-        let gridRow = promptedGridNumber;
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
-            row = document.createElement("div");
-            row.classList.add(`row${rowCounter}`);
-            console.log(row)
-            for(let i = 0; i < gridRow; i++){
-                columnNumber = document.querySelector(`.row${rowCounter}`);
-                //columnNumber.createElement('div');
-                //appendChild(`column${i}`);
-                console.log(columnNumber);
+            for(let columnCounter = 0; columnCounter < gridRow; columnCounter++){
+                cell = document.createElement("div");
+                cell.classList.add(`row${rowCounter}column${columnCounter}`);
+                console.log(cell)
             }
         }
     }
@@ -178,7 +173,8 @@ function userPrompt(e){
         else if(promptedGridNumber > 1 && promptedGridNumber < 100){
             choiceButton.classList.add('playerGrid');
             let gridRow = promptedGridNumber;
-            makeGrid(promptedGridNumber, gridRow);
+            makeGrid(gridRow);
+            console.log(gridRow);
         };
     }
     else{
