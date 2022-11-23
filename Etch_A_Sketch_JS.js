@@ -97,10 +97,10 @@ makeGrid = function makeGrid(gridRow){
     if(promptedGridNumber = ''){
         let gridRow = 16;
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
-            document.createElement(`divContainer${gridRow}`);
             for(let i = 0; i < gridRow; i++){
-                `divContainer${gridRow}`.appendChild(`div${gridRow}`)
-                console.log(`divContainer${gridRow}`);
+                cell = document.createElement("div");
+                cell.classList.add(`row${rowCounter}column${columnCounter}`);
+                console.log(cell)
             }
         }
     }
