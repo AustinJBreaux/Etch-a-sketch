@@ -54,6 +54,8 @@ function testDiv(){
         document.querySelectorAll(colorDivs.classList.add("toChange"));
     }
 }
+//On Start ----------------------------------------------
+
 
 //Global Variables---------------------------------------
 const choiceButton = document.querySelector('.userPromptButton');
@@ -95,11 +97,16 @@ function primaryColor(){
 //Creates grid
 makeGrid = function makeGrid(gridRow){
     if(promptedGridNumber = ''){
+        /* 
+        NOTE move this to a global on start function, remove the if statement,
+        and assign both of these to go into the changeable container
+        */
         let gridRow = 16;
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             for(let i = 0; i < gridRow; i++){
-                cell = document.createElement("div");
+                cell = document.changeable.createElement("div");
                 cell.classList.add(`row${rowCounter}column${columnCounter}`);
+                cell.classList.add('toChange');
                 console.log(cell)
             }
         }
@@ -107,8 +114,9 @@ makeGrid = function makeGrid(gridRow){
     else{
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             for(let columnCounter = 0; columnCounter < gridRow; columnCounter++){
-                cell = document.createElement("div");
+                cell = document.changeable.createElement("div");
                 cell.classList.add(`row${rowCounter}column${columnCounter}`);
+                cell.classList.add('toChange');
                 console.log(cell)
             }
         }
