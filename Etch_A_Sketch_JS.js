@@ -99,17 +99,16 @@ function primaryColor(){
 
 //Creates grid
 makeGrid = function makeGrid(gridRow){
-    if(promptedGridNumber = ''){
+    if(defaultGrid = true){
         let gridRow = 16;
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
-            for(let i = 0; i < gridRow; i++){
+            for(let columnCounter = 0; columnCounter < gridRow; columnCounter++){
                 colorDivs = document.querySelector('div.changeable')
                 .appendChild(document.createElement("div"));
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
                 document.querySelectorAll(colorDivs.classList.add(`row${rowCounter}column${columnCounter}`))
                 console.log(colorDivs);
             }
-            linebreak = document.createElement("br");
         }
     }
     else{
@@ -121,7 +120,6 @@ makeGrid = function makeGrid(gridRow){
                 document.querySelectorAll(colorDivs.classList.add(`row${rowCounter}column${columnCounter}`))
                 console.log(colorDivs);
             }
-            linebreak = document.createElement("br");
         }
     }
 }
@@ -167,6 +165,7 @@ let changeColor = function changeColor(e){
 // Prompts user for grid size
 function userPrompt(e){
     console.log(e);
+    defaultGrid = false;
     if(e.target.className != 'userPromptButton'){
         return;
     }    
@@ -185,7 +184,6 @@ function userPrompt(e){
             choiceButton.classList.add('playerGrid');
             let gridRow = promptedGridNumber;
             makeGrid(gridRow);
-            console.log(gridRow);
         };
     }
     else{
@@ -196,6 +194,6 @@ function userPrompt(e){
 //Events and backbone-------------------------------------
 //document.addEventListener('mouseover', changeColor);
 document.addEventListener('click', userPrompt);
-//document.addEventListener('click', makeGrid);
+makeGrid();
 
 
