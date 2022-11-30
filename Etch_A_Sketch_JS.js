@@ -49,11 +49,14 @@ Counter* ++ to gridRow
 document.querySelectorAll('changeable', testDiv())
 function testDiv(){
     for(i = 0; i < 8; i++){
-        colorDivs = document.querySelector('div.changeable')
-        .appendChild(document.createElement("div"));
-        document.querySelectorAll(colorDivs.classList.add("toChange"));
+        
     }
 }
+// To Do
+/*
+Try https://alvarotrigo.com/blog/change-css-javascript/ for the stylesheet
+*/
+
 //On Start ----------------------------------------------
 
 
@@ -97,28 +100,28 @@ function primaryColor(){
 //Creates grid
 makeGrid = function makeGrid(gridRow){
     if(promptedGridNumber = ''){
-        /* 
-        NOTE move this to a global on start function, remove the if statement,
-        and assign both of these to go into the changeable container
-        */
         let gridRow = 16;
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             for(let i = 0; i < gridRow; i++){
-                cell = document.changeable.createElement("div");
-                cell.classList.add(`row${rowCounter}column${columnCounter}`);
-                cell.classList.add('toChange');
-                console.log(cell)
+                colorDivs = document.querySelector('div.changeable')
+                .appendChild(document.createElement("div"));
+                document.querySelectorAll(colorDivs.classList.add("toChange"));
+                document.querySelectorAll(colorDivs.classList.add(`row${rowCounter}column${columnCounter}`))
+                console.log(colorDivs);
             }
+            linebreak = document.createElement("br");
         }
     }
     else{
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             for(let columnCounter = 0; columnCounter < gridRow; columnCounter++){
-                cell = document.changeable.createElement("div");
-                cell.classList.add(`row${rowCounter}column${columnCounter}`);
-                cell.classList.add('toChange');
-                console.log(cell)
+                colorDivs = document.querySelector('div.changeable')
+                .appendChild(document.createElement("div"));
+                document.querySelectorAll(colorDivs.classList.add("toChange"));
+                document.querySelectorAll(colorDivs.classList.add(`row${rowCounter}column${columnCounter}`))
+                console.log(colorDivs);
             }
+            linebreak = document.createElement("br");
         }
     }
 }
