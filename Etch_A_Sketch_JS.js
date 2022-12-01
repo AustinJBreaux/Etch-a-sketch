@@ -63,6 +63,7 @@ Try https://alvarotrigo.com/blog/change-css-javascript/ for the stylesheet
 //Global Variables---------------------------------------
 const choiceButton = document.querySelector('.userPromptButton');
 const restartButton = document.querySelector('.restartButton');
+//let useDefaultGrid = true;
 
 //Global functions---------------------------------------
 //Converts from random color number to the name of the color for CSS styling (UNF)
@@ -98,8 +99,9 @@ function primaryColor(){
 }
 
 //Creates grid
-makeGrid = function makeGrid(gridRow){
-    if(defaultGrid = true){
+makeGrid = function makeGrid(gridRow, promptedGrid){
+    console.log(promptedGrid);
+    if(useDefaultGrid = true){
         let gridRow = 16;
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             for(let columnCounter = 0; columnCounter < gridRow; columnCounter++){
@@ -110,8 +112,9 @@ makeGrid = function makeGrid(gridRow){
                 console.log(colorDivs);
             }
         }
+    console.log('Registering Default')
     }
-    else{
+    else if(useDefaultGrid = false){
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             for(let columnCounter = 0; columnCounter < gridRow; columnCounter++){
                 colorDivs = document.querySelector('div.changeable')
@@ -121,6 +124,11 @@ makeGrid = function makeGrid(gridRow){
                 console.log(colorDivs);
             }
         }
+    console.log('Registering Prompt');
+    console.log(useDefaultGrid);
+    }
+    else{
+        console.log('fail');
     }
 }
 
@@ -165,7 +173,6 @@ let changeColor = function changeColor(e){
 // Prompts user for grid size
 function userPrompt(e){
     console.log(e);
-    defaultGrid = false;
     if(e.target.className != 'userPromptButton'){
         return;
     }    
@@ -183,7 +190,8 @@ function userPrompt(e){
         else if(promptedGridNumber > 1 && promptedGridNumber < 100){
             choiceButton.classList.add('playerGrid');
             let gridRow = promptedGridNumber;
-            makeGrid(gridRow);
+            useDefaultGrid = false;
+            makeGrid(gridRow, useDefaultGrid);
         };
     }
     else{
@@ -195,5 +203,6 @@ function userPrompt(e){
 //document.addEventListener('mouseover', changeColor);
 document.addEventListener('click', userPrompt);
 makeGrid();
+
 
 
