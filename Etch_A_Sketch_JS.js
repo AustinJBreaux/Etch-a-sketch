@@ -99,8 +99,7 @@ function primaryColor(){
 }
 
 //Creates grid
-makeGrid = function makeGrid(gridRow, promptedGrid){
-    console.log(promptedGrid);
+makeGrid = function makeGrid(gridRow){
     if(useDefaultGrid == true){
         let gridRow = 16;
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
@@ -108,24 +107,25 @@ makeGrid = function makeGrid(gridRow, promptedGrid){
                 colorDivs = document.querySelector('div.changeable')
                 .appendChild(document.createElement("div"));
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
-                document.querySelectorAll(colorDivs.classList.add(`row${rowCounter}column${columnCounter}`))
-                console.log(colorDivs);
+                document.querySelectorAll(colorDivs.classList.add("defaultGrid"));
+                document.querySelectorAll(colorDivs.classList.add(`row${rowCounter}column${columnCounter}`));
             }
         }
-    console.log('Registering Default')
+    console.log('Default Complete')
     }
     else if(useDefaultGrid == false){
+        defaultGrid = document.querySelectorAll("toChange");
+        console.log(defaultGrid);
+        //defaultGrid.style.visibility = 'hidden';
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             for(let columnCounter = 0; columnCounter < gridRow; columnCounter++){
                 colorDivs = document.querySelector('div.changeable')
                 .appendChild(document.createElement("div"));
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
-                document.querySelectorAll(colorDivs.classList.add(`row${rowCounter}column${columnCounter}`))
-                console.log(colorDivs);
+                document.querySelectorAll(colorDivs.classList.add(`row${rowCounter}column${columnCounter}`));
             }
         }
-    console.log('Registering Prompt');
-    console.log(useDefaultGrid);
+    console.log('Prompt Complete');
     }
     else{
         console.log('fail');
