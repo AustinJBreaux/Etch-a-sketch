@@ -63,7 +63,7 @@ Try https://alvarotrigo.com/blog/change-css-javascript/ for the stylesheet
 //Global Variables---------------------------------------
 const choiceButton = document.querySelector('.userPromptButton');
 const restartButton = document.querySelector('.restartButton');
-//let useDefaultGrid = true;
+let useDefaultGrid = true;
 
 //Global functions---------------------------------------
 //Converts from random color number to the name of the color for CSS styling (UNF)
@@ -101,7 +101,7 @@ function primaryColor(){
 //Creates grid
 makeGrid = function makeGrid(gridRow, promptedGrid){
     console.log(promptedGrid);
-    if(useDefaultGrid = true){
+    if(useDefaultGrid == true){
         let gridRow = 16;
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             for(let columnCounter = 0; columnCounter < gridRow; columnCounter++){
@@ -114,7 +114,7 @@ makeGrid = function makeGrid(gridRow, promptedGrid){
         }
     console.log('Registering Default')
     }
-    else if(useDefaultGrid = false){
+    else if(useDefaultGrid == false){
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             for(let columnCounter = 0; columnCounter < gridRow; columnCounter++){
                 colorDivs = document.querySelector('div.changeable')
