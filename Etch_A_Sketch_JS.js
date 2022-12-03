@@ -68,33 +68,29 @@ let useDefaultGrid = true;
 //Global functions---------------------------------------
 //Converts from random color number to the name of the color for CSS styling (UNF)
 function primaryColor(){
-    if(colorNumber = 0){
-        let primaryColor = +'red';
-        return primaryColor;
+    //Creates random color assignment
+    let colorNumber = Math.floor(Math.random()*6);
+    if(colorNumber == 0){
+        return 'red';
     }
-    else if(colorNumber = 1){
-        let primaryColor = +'orange';
-        return primaryColor;
+    else if(colorNumber == 1){
+        return 'orange';
     }
-    else if(colorNumber = 2){
-        let primaryColor = +'yellow';
-        return primaryColor;
+    else if(colorNumber == 2){
+        return 'yellow';
     }
-    else if(colorNumber = 3){
-        let primaryColor = +'green';
-        return primaryColor;
+    else if(colorNumber == 3){
+        return 'green';
     }
-    else if(colorNumber = 4){
-        let primaryColor = +'blue';
-        return primaryColor;
+    else if(colorNumber == 4){
+        return 'blue';
     }
-    else if(colorNumber = 5){
-        let primaryColor = +'indigo';
-        return primaryColor;
+    else if(colorNumber == 5){
+        return 'indigo';
     }
-    else if(colorNumber = 6){
-        let primaryColor = +'violet';
-        return primaryColor;
+    else if(colorNumber == 6){
+        return 'violet';
+        
     }
 }
 
@@ -140,6 +136,8 @@ makeGrid = function makeGrid(gridRow){
 }
 
 //Creates multiple color styles with darker colors based on random color (UNF)
+//Delete possibly?
+/*
 for(color = 0; color < 7; color ++){
     primaryColor();
     for(brightness = 10; brightness > -1; brightness --){
@@ -152,27 +150,36 @@ for(color = 0; color < 7; color ++){
         filter: brightness(${brightness}%));`
     }
 }
+*/
 
 // Set and/or changes color (UNF)
 let changeColor = function changeColor(e){
-    //Creates random color assignment
-    let colorNumber = Math.floor(Math.random()*6);
+    //TO DO Add the style on hover, without creating CSS styling at all
 
-    //Changes the class to a random color
-    if(e.target.classList == "toChange"){
+    //Changes the element to a random color
+    if(e.target.classList = "toChange"){
         e.target.classList.add('changed');
         e.target.classList.remove('toChange');
-        e.target.classList.add(`color${colorNumber}_10`);
-        e.target.style = e.target.style[`color${colorNumber}_10`];
-        console.log(e.target.classList);
+        //e.target.classList.add(`color${colorNumber}_10`);
+        cssStyle = e.target.style;
+        cssStyle = `
+            width: 10px;
+            height: 10px;
+            background-color: ${primaryColor()};
+            filter: brightness(100%);
+        `
+        console.log(cssStyle);
+        
+        console.log(1)
     }
     //Makes filter +10% darker
-    else if(e.target.classList == `changed.color${colorNumber}`){
+    else if(e.target.classList = `changed.color${colorNumber}`){
         //e.target.style.filter
-        
+        (console.log(2))
         console.log(e.target.classList);
     }
     else{
+        console.log(3)
         return
     }
 }
@@ -207,7 +214,8 @@ function userPrompt(e){
 };
 
 //Events and backbone-------------------------------------
-//document.addEventListener('mouseover', changeColor);
+document.addEventListener('click', changeColor);
+//^Change to hover after testing is done
 document.addEventListener('click', userPrompt);
 makeGrid();
 

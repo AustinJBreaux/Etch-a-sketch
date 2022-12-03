@@ -23,12 +23,11 @@
     align-content: flex-start;
 }
 
-.toChange{
+.toChange{ /*Temp, replace height/width with percentage*/
     width: 10px;
     height: 10px;
     border: 2px solid black;
 }
-
 /*
 .color0{
     width: 10px;
