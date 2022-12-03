@@ -52,9 +52,14 @@ function testDiv(){
         
     }
 }
-// To Do
+//TO DO 
 /*
-Try https://alvarotrigo.com/blog/change-css-javascript/ for the stylesheet
+Make the width/height based on how many elements in the grid there are
+
+
+
+
+
 */
 
 //On Start ----------------------------------------------
@@ -152,8 +157,6 @@ for(color = 0; color < 7; color ++){
 
 // Set and/or changes color (UNF)
 let changeColor = function changeColor(e){
-    //TO DO Add the style on hover, without creating CSS styling at all
-
     //Changes the element to a random color
     if(e.target.classList == "toChange"){
         e.target.classList.add('changed');
