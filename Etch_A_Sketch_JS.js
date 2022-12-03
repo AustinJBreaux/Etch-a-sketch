@@ -161,25 +161,22 @@ let changeColor = function changeColor(e){
         e.target.classList.add('changed');
         e.target.classList.remove('toChange');
         //e.target.classList.add(`color${colorNumber}_10`);
-        cssStyle = e.target.style;
-        cssStyle = `
+        let cssStyle = `
             width: 10px;
             height: 10px;
             background-color: ${primaryColor()};
             filter: brightness(100%);
+            border: 2px solid black;
         `
+        e.target.style.cssText = cssStyle;
         console.log(cssStyle);
-        
-        console.log(1)
     }
     //Makes filter +10% darker
     else if(e.target.classList = `changed.color${colorNumber}`){
         //e.target.style.filter
-        (console.log(2))
         console.log(e.target.classList);
     }
     else{
-        console.log(3)
         return
     }
 }
