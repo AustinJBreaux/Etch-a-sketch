@@ -98,6 +98,15 @@ function primaryColor(){
     }
 }
 
+//Removes default grid if prompted grid is called
+function removeDefault(){
+    let defaultGrid = document.querySelector('div.changeable');
+    console.log(defaultGrid);
+    while(defaultGrid.firstChild){
+        defaultGrid.removeChild(defaultGrid.firstChild);
+    }
+}
+
 //Creates grid
 makeGrid = function makeGrid(gridRow){
     if(useDefaultGrid == true){
@@ -114,9 +123,7 @@ makeGrid = function makeGrid(gridRow){
     console.log('Default Complete')
     }
     else if(useDefaultGrid == false){
-        defaultGrid = document.querySelectorAll("toChange");
-        console.log(defaultGrid);
-        //defaultGrid.style.visibility = 'hidden';
+        removeDefault();
         for(let rowCounter = 0;rowCounter < gridRow; rowCounter++){
             for(let columnCounter = 0; columnCounter < gridRow; columnCounter++){
                 colorDivs = document.querySelector('div.changeable')
