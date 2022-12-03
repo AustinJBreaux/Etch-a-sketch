@@ -112,8 +112,6 @@ makeGrid = function makeGrid(gridRow){
                 colorDivs = document.querySelector('div.changeable')
                 .appendChild(document.createElement("div"));
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
-                document.querySelectorAll(colorDivs.classList.add("defaultGrid"));
-                document.querySelectorAll(colorDivs.classList.add(`row${rowCounter}column${columnCounter}`));
             }
         }
     console.log('Default Complete')
@@ -157,10 +155,9 @@ let changeColor = function changeColor(e){
     //TO DO Add the style on hover, without creating CSS styling at all
 
     //Changes the element to a random color
-    if(e.target.classList = "toChange"){
+    if(e.target.classList == "toChange"){
         e.target.classList.add('changed');
         e.target.classList.remove('toChange');
-        //e.target.classList.add(`color${colorNumber}_10`);
         let cssStyle = `
             width: 10px;
             height: 10px;
@@ -169,12 +166,15 @@ let changeColor = function changeColor(e){
             border: 2px solid black;
         `
         e.target.style.cssText = cssStyle;
-        console.log(cssStyle);
+        console.log('case1')
     }
     //Makes filter +10% darker
-    else if(e.target.classList = `changed.color${colorNumber}`){
-        //e.target.style.filter
-        console.log(e.target.classList);
+    else if(e.target.classList == 'changed'){
+        let filter = e.target.style.filter;
+        let brightnessValue = filter.replace(/\D/g,'');
+        brightnessValue = brightnessValue - 10;
+        filter = `brightness(${brightnessValue}%)`
+        e.target.style.filter = filter;
     }
     else{
         return
