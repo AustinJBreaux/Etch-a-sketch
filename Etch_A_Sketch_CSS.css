@@ -22,12 +22,13 @@
     justify-content: space-evenly;
     align-content: flex-start;
 }
-
-.toChange{ /*Temp, replace height/width with percentage*/
+/*
+.toChange{
     width: 10px;
     height: 10px;
     border: 2px solid black;
 }
+*/
 /*
 .color0{
     width: 10px;

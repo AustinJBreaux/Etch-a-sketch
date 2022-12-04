@@ -15,6 +15,7 @@ Make the width/height based on how many elements in the grid there are
 const choiceButton = document.querySelector('.userPromptButton');
 const restartButton = document.querySelector('.restartButton');
 let useDefaultGrid = true;
+let gridPercent = '';
 
 //Global functions---------------------------------------
 //Converts from random color number to the name of the color for CSS styling (UNF)
@@ -65,6 +66,14 @@ makeGrid = function makeGrid(gridRow){
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
             }
         }
+        let gridPercent = gridRow/10;
+    let initialStyle = `
+        width: ${gridPercent}%;
+        height: ${gridPercent}%;
+        border: 1px solid black;
+    `
+    document.querySelectorAll('toChange').style.cssText = initialStyle
+    console.log(gridPercent);
     console.log('Default Complete')
     }
     else if(useDefaultGrid == false){
@@ -76,6 +85,14 @@ makeGrid = function makeGrid(gridRow){
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
             }
         }
+    let gridPercent = gridRow/10;
+    let initialStyle = `
+        width: ${gridPercent}%;
+        height: ${gridPercent}%;
+        border: 1px solid black;
+    `
+    document.querySelectorAll('toChange').style.cssText = initialStyle
+    console.log(gridPercent);
     console.log('Prompt Complete');
     }
     else{
@@ -103,15 +120,16 @@ for(color = 0; color < 7; color ++){
 // Set and/or changes color (UNF)
 let changeColor = function changeColor(e){
     //Changes the element to a random color
+    gridrow;
     if(e.target.classList == "toChange"){
         e.target.classList.add('changed');
         e.target.classList.remove('toChange');
         let cssStyle = `
-            width: 10px;
-            height: 10px;
+            width: ${gridPercent}%;
+            height: ${gridPercent}%;
             background-color: ${primaryColor()};
             filter: brightness(100%);
-            border: 2px solid black;
+            border: 1px solid black;
         `
         e.target.style.cssText = cssStyle;
         console.log('case1')
