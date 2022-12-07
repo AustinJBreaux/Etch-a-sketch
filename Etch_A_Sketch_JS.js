@@ -64,16 +64,15 @@ makeGrid = function makeGrid(gridRow){
                 colorDivs = document.querySelector('div.changeable')
                 .appendChild(document.createElement("div"));
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
+                let gridPercent = 100/(gridRow+1);
+                initialStyle = `
+                    width: ${gridPercent}%;
+                    height: ${gridPercent}%;
+                    border: 1px solid black;
+                `
+                colorDivs.style.cssText = initialStyle;
             }
         }
-        let gridPercent = gridRow/10;
-    let initialStyle = `
-        width: ${gridPercent}%;
-        height: ${gridPercent}%;
-        border: 1px solid black;
-    `
-    document.querySelectorAll('toChange').style.cssText = initialStyle
-    console.log(gridPercent);
     console.log('Default Complete')
     }
     else if(useDefaultGrid == false){
@@ -83,15 +82,15 @@ makeGrid = function makeGrid(gridRow){
                 colorDivs = document.querySelector('div.changeable')
                 .appendChild(document.createElement("div"));
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
+                let gridPercent = 100/(gridRow+(100/gridRow+1));
+                initialStyle = `
+                    width: ${gridPercent}%;
+                    height: ${gridPercent}%;
+                    border: 1px solid black;
+                `
+                colorDivs.style.cssText = initialStyle;
             }
         }
-    let gridPercent = gridRow/10;
-    let initialStyle = `
-        width: ${gridPercent}%;
-        height: ${gridPercent}%;
-        border: 1px solid black;
-    `
-    document.querySelectorAll('toChange').style.cssText = initialStyle
     console.log(gridPercent);
     console.log('Prompt Complete');
     }
@@ -120,8 +119,10 @@ for(color = 0; color < 7; color ++){
 // Set and/or changes color (UNF)
 let changeColor = function changeColor(e){
     //Changes the element to a random color
-    gridrow;
     if(e.target.classList == "toChange"){
+        styleSelector = document.querySelector("div.toChange");
+        let gridPercent = styleSelector.style.cssText.width;
+        console.log(gridPercent);
         e.target.classList.add('changed');
         e.target.classList.remove('toChange');
         let cssStyle = `
