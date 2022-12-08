@@ -82,10 +82,11 @@ makeGrid = function makeGrid(gridRow){
                 colorDivs = document.querySelector('div.changeable')
                 .appendChild(document.createElement("div"));
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
-                let gridPercent = 100/(gridRow+(100/gridRow+1));
+                let gridPercent = (100/(gridRow))-(1/gridRow);
+                let borderPercent = 1/gridRow;
                 initialStyle = `
-                    width: ${gridPercent}%;
-                    height: ${gridPercent}%;
+                    width:  .99%;
+                    height: .99%;
                     border: 1px solid black;
                 `
                 colorDivs.style.cssText = initialStyle;
