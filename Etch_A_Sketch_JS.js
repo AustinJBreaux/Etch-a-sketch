@@ -87,8 +87,11 @@ makeGrid = function makeGrid(gridRow){
                 initialStyle = `
                     width:  .99%;
                     height: .99%;
+                    margin: 0px;
                     border: 1px solid black;
                 `
+                //try https://www.sitepoint.com/community/t/overlapping-borders-for-side-by-side-divs/1681/3
+                //to fix border overflow problem
                 colorDivs.style.cssText = initialStyle;
             }
         }
