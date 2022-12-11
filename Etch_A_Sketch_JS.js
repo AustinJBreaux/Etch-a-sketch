@@ -64,10 +64,12 @@ makeGrid = function makeGrid(gridRow){
                 colorDivs = document.querySelector('div.changeable')
                 .appendChild(document.createElement("div"));
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
-                let gridPercent = 100/(gridRow+1);
+                let gridPercent = ((100/(gridRow))-1/gridRow);
                 initialStyle = `
-                    width: ${gridPercent}%;
-                    height: ${gridPercent}%;
+                    width:  ${gridRow}%;
+                    height: ${gridRow}%;
+                    display: flex;
+                    margin: 0;
                     border: 1px solid black;
                 `
                 colorDivs.style.cssText = initialStyle;
@@ -82,16 +84,15 @@ makeGrid = function makeGrid(gridRow){
                 colorDivs = document.querySelector('div.changeable')
                 .appendChild(document.createElement("div"));
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
-                let gridPercent = (100/(gridRow))-(1/gridRow);
+                let gridPercent = (100/(gridRow));
                 let borderPercent = 1/gridRow;
                 initialStyle = `
-                    width:  ${gridPercent};
-                    height: ${gridPercent};
-                    margin: -1px;
+                    width:  ${gridPercent}%;
+                    height: ${gridPercent}%;
+                    display: flex;
+                    margin: 0px;
                     border: 1px solid black;
                 `
-                //try https://www.sitepoint.com/community/t/overlapping-borders-for-side-by-side-divs/1681/3
-                //to fix border overflow problem
                 colorDivs.style.cssText = initialStyle;
             }
         }
@@ -125,8 +126,7 @@ let changeColor = function changeColor(e){
     //Changes the element to a random color
     if(e.target.classList == "toChange"){
         styleSelector = document.querySelector("div.toChange");
-        let gridPercent = styleSelector.style.cssText.width;
-        console.log(gridPercent);
+        let gridPercent = styleSelector.style.width;
         e.target.classList.add('changed');
         e.target.classList.remove('toChange');
         let cssStyle = `
@@ -137,7 +137,7 @@ let changeColor = function changeColor(e){
             border: 1px solid black;
         `
         e.target.style.cssText = cssStyle;
-        console.log('case1')
+        console.log('Color Changed');
     }
     //Makes filter +10% darker
     else if(e.target.classList == 'changed'){
@@ -146,6 +146,7 @@ let changeColor = function changeColor(e){
         brightnessValue = brightnessValue - 10;
         filter = `brightness(${brightnessValue}%)`
         e.target.style.filter = filter;
+        console.log('Brightness Changed');
     }
     else{
         return
