@@ -1,15 +1,3 @@
-//TO DO 
-/*
-Make the width/height based on how many elements in the grid there are
-
-
-
-
-
-*/
-
-//On Start ----------------------------------------------
-
 
 //Global Variables---------------------------------------
 const choiceButton = document.querySelector('.userPromptButton');
@@ -17,7 +5,6 @@ const restartButton = document.querySelector('.restartButton');
 let useDefaultGrid = true;
 let gridPercent = '';
 
-//Global functions---------------------------------------
 //Converts from random color number to the name of the color for CSS styling (UNF)
 function primaryColor(){
     //Creates random color assignment
@@ -64,13 +51,12 @@ makeGrid = function makeGrid(gridRow){
                 colorDivs = document.querySelector('div.changeable')
                 .appendChild(document.createElement("div"));
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
-                let gridPercent = ((100/(gridRow))-1/gridRow);
+                let gridPercent = 100/gridRow;
                 initialStyle = `
                     width:  ${gridPercent}%;
                     height: ${gridPercent}%;
                     display: flex;
                     margin: 0;
-                    border: 1px solid black;
                 `
                 colorDivs.style.cssText = initialStyle;
             }
@@ -85,44 +71,20 @@ makeGrid = function makeGrid(gridRow){
                 colorDivs = document.querySelector('div.changeable')
                 .appendChild(document.createElement("div"));
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
-                let gridPercent = (100/(gridRow));
-                let borderPercent = 1/gridRow;
+                let gridPercent = 100/gridRow;
                 initialStyle = `
                     width:  ${gridPercent}%;
                     height: ${gridPercent}%;
                     display: flex;
                     margin: 0px;
-                    border: 1px solid black;
                 `
                 colorDivs.style.cssText = initialStyle;
             }
         }
-    console.log(gridPercent);
-    console.log('Prompt Complete');
-    }
-    else{
-        console.log('fail');
     }
 }
 
-//Creates multiple color styles with darker colors based on random color (UNF)
-//Delete possibly?
-/*
-for(color = 0; color < 7; color ++){
-    primaryColor();
-    for(brightness = 10; brightness > -1; brightness --){
-        brightnessFilter = i*10;
-        colorDiv = document.createElement('div');
-        colorDiv.classList.add(`colorDiv${color}_${brightness}`);
-        colorDiv.style.cssText = `(width: 10px;
-        height: 10px;
-        background-color: ${primaryColor};
-        filter: brightness(${brightness}%));`
-    }
-}
-*/
-
-// Set and/or changes color (UNF)
+// Set and/or changes color
 let changeColor = function changeColor(e){
     //Changes the element to a random color
     if(e.target.classList == "toChange"){
@@ -135,11 +97,10 @@ let changeColor = function changeColor(e){
             height: ${gridPercent};
             background-color: ${primaryColor()};
             filter: brightness(100%);
-            border: 1px solid black;
         `
         e.target.style.cssText = cssStyle;
-        console.log('Color Changed');
     }
+
     //Makes filter 10% darker
     else if(e.target.classList == 'changed'){
         let filter = e.target.style.filter;
@@ -154,7 +115,7 @@ let changeColor = function changeColor(e){
     }
 }
 
-// Prompts user for grid size
+// Prompts user for grid size on click
 function userPrompt(e){
     console.log(e);
     if(e.target.className != 'userPromptButton'){
@@ -171,7 +132,7 @@ function userPrompt(e){
             console.log('Error: Please enter a number between 1-100');
             return;
         }
-        else if(promptedGridNumber > 1 && promptedGridNumber < 100){
+        else if(promptedGridNumber > 1 && promptedGridNumber < 101){
             choiceButton.classList.add('playerGrid');
             let gridRow = promptedGridNumber;
             useDefaultGrid = false;
@@ -184,8 +145,7 @@ function userPrompt(e){
 };
 
 //Events and backbone-------------------------------------
-document.addEventListener('click', changeColor);
-//^Change to hover after testing is done
+document.addEventListener('mouseover', changeColor);
 document.addEventListener('click', userPrompt);
 makeGrid();
 
