@@ -66,8 +66,8 @@ makeGrid = function makeGrid(gridRow){
                 document.querySelectorAll(colorDivs.classList.add("toChange"));
                 let gridPercent = ((100/(gridRow))-1/gridRow);
                 initialStyle = `
-                    width:  ${gridRow}%;
-                    height: ${gridRow}%;
+                    width:  ${gridPercent}%;
+                    height: ${gridPercent}%;
                     display: flex;
                     margin: 0;
                     border: 1px solid black;
@@ -76,6 +76,7 @@ makeGrid = function makeGrid(gridRow){
             }
         }
     console.log('Default Complete')
+    console.log(colorDivs.style.width);
     }
     else if(useDefaultGrid == false){
         removeDefault();
@@ -130,8 +131,8 @@ let changeColor = function changeColor(e){
         e.target.classList.add('changed');
         e.target.classList.remove('toChange');
         let cssStyle = `
-            width: ${gridPercent}%;
-            height: ${gridPercent}%;
+            width:  ${gridPercent};
+            height: ${gridPercent};
             background-color: ${primaryColor()};
             filter: brightness(100%);
             border: 1px solid black;
@@ -139,7 +140,7 @@ let changeColor = function changeColor(e){
         e.target.style.cssText = cssStyle;
         console.log('Color Changed');
     }
-    //Makes filter +10% darker
+    //Makes filter 10% darker
     else if(e.target.classList == 'changed'){
         let filter = e.target.style.filter;
         let brightnessValue = filter.replace(/\D/g,'');
